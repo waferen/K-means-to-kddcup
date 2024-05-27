@@ -3,7 +3,7 @@ import pandas as pd
 import random
 import matplotlib.pyplot as plt
 
-
+from sklearn.decomposition import PCA
 
 
 
@@ -70,11 +70,11 @@ def load_dataset():
         if X[:, i].dtype.kind not in 'biufc':  # 检查列类型是否为数值型（整数、布尔、无符号整数、浮点、复数）
             X[:, i], _ = integer_encode_column(X[:, i])  # 对列进行整数编码
 
-    # # 假设我们有一个名为X的数据集并且我们想降至2维
-    # pca = PCA(n_components=2)
+    # 假设我们有一个名为X的数据集并且我们想降至2维
+    pca = PCA(n_components=2)
 
-    # # 将PCA应用到数据集
-    # X = pca.fit_transform(X)
+    # 将PCA应用到数据集
+    X = pca.fit_transform(X)
 
     return X
 
